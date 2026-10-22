@@ -1,0 +1,10 @@
+{
+  "name": "BRAS FOOT",
+  "short_name": "BRAS FOOT",
+  "description": "Assuma o comando. Construa sua história no futebol.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f9f7",
+  "theme_color": "#123f2a"
+}
