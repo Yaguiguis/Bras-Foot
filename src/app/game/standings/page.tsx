@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Trophy } from "lucide-react";
 import { getSupabase } from "@/lib/supabase";
+import "./standings.css";
 
 export default function StandingsPage(){
  const router=useRouter(), supabase=getSupabase();
