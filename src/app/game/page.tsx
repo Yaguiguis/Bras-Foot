@@ -1,25 +1,5 @@
 "use client";
-
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { getSupabase } from "@/lib/supabase";
-
-export default function GamePage(){
- const router=useRouter();
- const supabase=getSupabase();
- useEffect(()=>{
-   let alive=true;
-   async function check(){
-     if(!supabase){return;}
-     const {data:{session}}=await supabase.auth.getSession();
-     if(!session){router.replace("/");return;}
-     const {data,error}=await supabase.from("careers").select("id").eq("user_id",session.user.id).limit(1);
-     if(!alive)return;
-     if(error){console.error(error);return;}
-     if(!data?.length){router.replace("/game/choose");return;}
-   }
-   void check();
-   return()=>{alive=false};
- },[router,supabase]);
- return <main style={{minHeight:"100vh",display:"grid",placeItems:"center",fontFamily:"Arial",background:"#f4f7f5",color:"#08110d"}}>Carregando BRAS FOOT...</main>;
-}
+export default function GamePage(){const router=useRouter();const supabase=getSupabase();useEffect(()=>{let alive=true;async function check(){if(!supabase)return;const {data:{session}}=await supabase.auth.getSession();if(!session){router.replace("/");return}const {data,error}=await supabase.from("careers").select("id").eq("user_id",session.user.id).limit(1);if(!alive)return;if(error){console.error(error);return}if(!data?.length)router.replace("/game/choose")}void check();return()=>{alive=false}},[router,supabase]);return <main style={{minHeight:"100vh",display:"grid",placeItems:"center",fontFamily:"Arial",background:"#f4f7f5"}}>Carregando BRAS FOOT...</main>}
